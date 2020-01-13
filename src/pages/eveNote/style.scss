@@ -1,0 +1,38 @@
+.main_body {
+    height: -webkit-fill-available;
+    padding: 12px;
+
+    .sec1 {
+        width: 300px;
+        background-color: #333;
+
+        .icon-add-plus {
+            width: 30px;
+            height: 30px;
+            font-size: 25px;
+            color: green;
+            border: none;
+            margin: 5px;
+            line-height: 27px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        span {
+            color: #fff;
+            margin-left: 5px;
+            line-height: 30px;;
+            font-size: 20px;
+        }
+    }
+
+    .sec2 {
+        width: 300px;
+        background-color: #eee;
+
+    }
+
+    .sec3 {
+        width: 100%;
+    }
+}
