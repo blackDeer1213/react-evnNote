@@ -2,83 +2,7 @@ import React from 'react';
 import 'bulma';
 import './style.scss';
 
-let App = () => {
-  let time = new Date();
-  return (
-    <div className="title">
-      <h1>
-        {time.getHours()}:{time.getMinutes()}:{time.getSeconds()}
-      </h1>
 
-    </div>
-  );
-}
-
-class clock extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      time: new Date()
-    }
-    setInterval(() => {
-      this.setState({
-        time: new Date()
-      })
-    }, 1000);
-  }
-  render() {
-    let time = this.state.time;
-    return (
-      <div className="app">
-        <h1 style={{ color: 'green' }}>
-          {time.getHours()}:{time.getMinutes()}:{time.getSeconds()}
-        </h1>
-
-      </div>
-    );
-  }
-}
-
-class count extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      count: 5
-    }
-  }
-
-  render() {
-    let count = this.state.count
-    return (
-      <div className='countDown'>
-        <h1>{count}</h1>
-        <div>
-          <button onClick={() => this.up()}> + </button>
-          <button onClick={() => this.down()}> - </button>
-          <button onClick={() => this.reset()}> reset </button>
-        </div>
-      </div>
-    )
-  }
-
-  down() {
-    let count = this.state.count
-    if (count > 0) {
-      this.setState({ count: count - 1 })
-    }
-  }
-  up() {
-    let count = this.state.count
-    this.setState({ count: count + 1 })
-  }
-  reset() {
-    this.setState({
-      count: 5
-    })
-  }
-
-}
 class Forms extends React.Component {
   constructor(prop) {
     super(prop)
@@ -141,7 +65,7 @@ class Forms extends React.Component {
         <div className="field">
           <div className="control">
             <label className="checkbox">
-              <input type="checkbox" onChange={e => this.onIptChange(e, 'agree', 'checked')} checked={this.state.agree} /> I agree to the <a href="#">terms and conditions</a>
+              <input type="checkbox" onChange={e => this.onIptChange(e, 'agree', 'checked')} checked={this.state.agree} /> I agree to the
             </label>
           </div>
         </div>
@@ -149,10 +73,10 @@ class Forms extends React.Component {
         <div className="field">
           <div className="control">
             <label className="radio">
-              <input type="radio" name="stateMgr" value='Redux' onChange={e => this.onIptChange(e, 'stateMgr')} checked={this.state.stateMgr == 'Redux'} />Redux
+              <input type="radio" name="stateMgr" value='Redux' onChange={e => this.onIptChange(e, 'stateMgr')} checked={this.state.stateMgr === 'Redux'} />Redux
             </label>
             <label className="radio">
-              <input type="radio" name="stateMgr" value='MobX' onChange={e => this.onIptChange(e, 'stateMgr')} checked={this.state.stateMgr == 'MobX'} />MobX
+              <input type="radio" name="stateMgr" value='MobX' onChange={e => this.onIptChange(e, 'stateMgr')} checked={this.state.stateMgr === 'MobX'} />MobX
             </label>
           </div>
         </div>
@@ -190,10 +114,10 @@ class Forms extends React.Component {
   }
   vaildate(filed) {
     let error = this.state.err
-    if (filed == 'name') {
+    if (filed === 'name') {
       this.state.name ? error.name = '' : error.name = '请输入名称'
     }
-    if (filed == 'email') {
+    if (filed === 'email') {
       let re = /^[-\w]+@[-\w]+(\.[-\w]+)+$/
       if (this.state.email && re.test(this.state.email)) {
         error.email = ''

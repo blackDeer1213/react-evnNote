@@ -3,7 +3,7 @@ import marked from 'marked'
 import 'github-markdown-css'
 import './style.scss'
 
-export class markDown extends Component {
+class markDown extends Component {
     constructor(props) {
         super(props);
         this.state = {
