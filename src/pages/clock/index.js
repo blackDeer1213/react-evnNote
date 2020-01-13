@@ -4,17 +4,20 @@ import 'bulma';
 
 
 class clock extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
             time: new Date()
         }
-        setInterval(() => {
+        this.timer = setInterval(() => {
             this.setState({
                 time: new Date()
             })
         }, 1000);
+    }
+
+    componentWillUnmount() {
+        clearTimeout(this.timer);
     }
     render() {
         let time = this.state.time;
@@ -23,7 +26,6 @@ class clock extends React.Component {
                 <h1 style={{ color: 'green' }}>
                     {time.getHours()}:{time.getMinutes()}:{time.getSeconds()}
                 </h1>
-
             </div>
         );
     }
